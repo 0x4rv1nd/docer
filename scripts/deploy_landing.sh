@@ -1,9 +1,9 @@
 #!/bin/bash
-
 # Configuration
-SOURCE_DIR="/home/arvind/Desktop/docai/landing_page"
+SOURCE_DIR_LANDING="/home/arvind/Desktop/docai/landing"
+SOURCE_DIR_NGINX="/home/arvind/Desktop/docai/nginx"
 TARGET_DIR="/var/www/geteverythinggpt"
-NGINX_CONF_NAME="geteverythinggpt"
+NGINX_CONF_NAME="geteverythinggpt.conf"
 NGINX_AVAILABLE="/etc/nginx/sites-available/$NGINX_CONF_NAME"
 NGINX_ENABLED="/etc/nginx/sites-enabled/$NGINX_CONF_NAME"
 
@@ -15,13 +15,13 @@ sudo mkdir -p $TARGET_DIR
 
 # 2. Copy static files
 echo "Step 2: Copying index.html and style.css..."
-sudo cp $SOURCE_DIR/index.html $TARGET_DIR/
-sudo cp $SOURCE_DIR/style.css $TARGET_DIR/
+sudo cp $SOURCE_DIR_LANDING/index.html $TARGET_DIR/
+sudo cp $SOURCE_DIR_LANDING/style.css $TARGET_DIR/
 sudo chown -R www-data:www-data $TARGET_DIR
 
 # 3. Setup Nginx Configuration
 echo "Step 3: Setting up Nginx configuration..."
-sudo cp $SOURCE_DIR/nginx.config $NGINX_AVAILABLE
+sudo cp $SOURCE_DIR_NGINX/geteverythinggpt.conf $NGINX_AVAILABLE
 
 # 4. Enable configuration
 echo "Step 4: Enabling configuration in sites-enabled..."
@@ -46,3 +46,4 @@ else
     echo "❌ Nginx config test failed. Please check the logs."
     exit 1
 fi
+

@@ -51,4 +51,56 @@ This project is optimized for [Render](https://render.com).
 - 100MB Upload Limit
 - Auto-cleanup of temp files (24h)
 - UUID-based isolation
-- Signed URLs for Supabase mode
+## 📂 Project Structure
+
+```text
+docai/
+├── app/                # FastAPI Application
+├── nginx/              # Nginx Configuration
+│   └── geteverythinggpt.conf
+├── landing/            # Static Landing Page
+│   ├── index.html
+│   └── style.css
+├── scripts/            # Deployment Utilities
+└── docker-compose.yml
+```
+
+## 🌐 Deploying with Nginx (Production)
+
+This project is set up to run behind Nginx on a Linux server (e.g., AWS EC2). The landing page lives at the root domain, and the tool is served at `/docai`.
+
+### 1. Prepare Static Files
+Copy the landing page files to `/var/www/geteverythinggpt`:
+```bash
+sudo mkdir -p /var/www/geteverythinggpt
+sudo cp -r landing/* /var/www/geteverythinggpt/
+sudo chown -R www-data:www-data /var/www/geteverythinggpt
+```
+
+### 2. Configure Nginx
+Copy the configuration file to Nginx's sites-available:
+```bash
+sudo cp nginx/geteverythinggpt.conf /etc/nginx/sites-available/
+```
+
+### 3. Enable the Site
+Create a symbolic link to enable the configuration and test it:
+```bash
+sudo ln -s /etc/nginx/sites-available/geteverythinggpt.conf /etc/nginx/sites-enabled/
+sudo nginx -t
+```
+
+### 4. Restart Nginx
+If the test is successful, reload Nginx to apply changes:
+```bash
+sudo systemctl restart nginx
+```
+
+### 5. Running the App
+Ensure your Docker container is running on port `8000`:
+```bash
+docker-compose up -d
+```
+
+---
+Built with ❤️ for GetEverythingGPT.com

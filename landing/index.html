@@ -8,19 +8,22 @@
         content="Free AI tools at GetEverythingGPT.com. No accounts, no limits, just simple usage for students and developers.">
     <title>GetEverythingGPT.com - Free AI Tools</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <nav>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div class="container nav-container">
             <a href="/" class="logo">GetEverythingGPT</a>
             <ul class="nav-links">
-                <li><a href="/docai">DocAI</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="/docai">DocAI</a></li>
+                <li><a href="/docai/">DocAI</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
-            <a href="/docai" class="cta-button" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Launch DocAI</a>
+            <a href="/docai/" class="cta-button nav-cta">Launch DocAI</a>
         </div>
     </nav>
 
@@ -28,28 +31,34 @@
         <section class="hero">
             <div class="container">
                 <h1>GetEverythingGPT.com</h1>
-                <p class="tagline">Free AI tools. No accounts. No limits. Just use.</p>
-                <a href="/docai" class="cta-button">Open DocAI Tool</a>
+                <p class="tagline">Free AI tools. No login. No signup. Just use.</p>
+                <div class="hero-actions">
+                    <a href="/docai/" class="cta-button">Open DocAI Tool</a>
+                </div>
             </div>
         </section>
 
-        <section class="info-section">
+        <section id="features" class="info-section">
             <div class="container">
                 <div class="grid">
                     <div class="card">
+                        <div class="card-icon">🚀</div>
                         <h3>Free Tools</h3>
                         <p>Complete access to our powerful AI tool suite without any hidden costs or subscriptions.</p>
                     </div>
                     <div class="card">
+                        <div class="card-icon">⚡</div>
                         <h3>Simple Usage</h3>
                         <p>Minimalist interface designed for speed. Get your work done without the clutter.</p>
                     </div>
                     <div class="card">
+                        <div class="card-icon">🔒</div>
                         <h3>No Registration</h3>
                         <p>Skip the sign-up process. We don't need your data to provide our services.</p>
                     </div>
                     <div class="card">
-                        <h3>Built for Education</h3>
+                        <div class="card-icon">🎓</div>
+                        <h3>Built for You</h3>
                         <p>Specifically optimized for the needs of students and developers needing quick solutions.</p>
                     </div>
                 </div>
@@ -57,16 +66,15 @@
         </section>
     </main>
 
-    <footer style="padding: 4rem 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+    <footer>
         <div class="container">
             <p>&copy; 2024 GetEverythingGPT.com. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Simple micro-animation for the logo
+        // Simple micro-interaction
         document.querySelector('.logo').addEventListener('mouseover', function () {
-            this.style.transition = '0.3s';
             this.style.color = '#6366f1';
         });
         document.querySelector('.logo').addEventListener('mouseout', function () {
