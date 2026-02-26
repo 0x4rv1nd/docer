@@ -9,6 +9,7 @@ services:
       - "8000:8000"
     environment:
       - PORT=8000
+      - ROOT_PATH=/docai
       - STORAGE_PROVIDER=local
       # Add other environment variables as needed
     volumes:

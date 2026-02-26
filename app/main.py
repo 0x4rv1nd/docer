@@ -13,7 +13,13 @@ from app.converter import process_conversion
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("api")
 
-app = FastAPI(title="DocAI | High-Fidelity PDF Watermark Remover")
+# Get root path from environment (useful for subpath hosting like /docai)
+ROOT_PATH = os.environ.get("ROOT_PATH", "")
+
+app = FastAPI(
+    title="DocAI | High-Fidelity PDF Watermark Remover",
+    root_path=ROOT_PATH
+)
 
 # Mount static and templates
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

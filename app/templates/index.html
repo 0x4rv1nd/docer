@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocAI | High-Fidelity PDF Watermark Remover</title>
-    <link rel="stylesheet" href="/static/style.css?v=1.1">
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}?v=1.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
             <p>&copy; 2026 DocAI. Production Grade Service.</p>
         </footer>
     </div>
-    <script src="/static/app.js"></script>
+    <script src="{{ url_for('static', path='/app.js') }}"></script>
 </body>
 
 </html>
